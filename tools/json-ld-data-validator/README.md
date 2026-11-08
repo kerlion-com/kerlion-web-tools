@@ -1,8 +1,8 @@
 # KERLION JSON-LD Data Validator
 
-A browser-based JSON and JSON-LD checker by KERLION. The tool analyzes pasted
-JSON-LD locally in the browser and provides syntax checks, structural hints,
-formatting, minification, and a plain-text report.
+A browser-based JSON and JSON-LD checker developed by KERLION. The tool analyzes
+pasted JSON-LD locally in the browser and provides syntax checks, structural
+hints, formatting, minification, and a plain-text report.
 
 ## Live Tool
 
@@ -24,6 +24,7 @@ formatting, minification, and a plain-text report.
 - Copies a plain-text inspection report.
 - Loads a built-in sample and clears the editor.
 - Links to Google's Rich Results Test for a separate page-level check.
+- Displays a permanent, clickable KERLION design and development credit.
 
 ## Important Scope
 
@@ -66,11 +67,17 @@ Designed and developed by **KERLION**.
 
 Official website: [https://www.kerlionvip.com](https://www.kerlionvip.com)
 
-The KERLION attribution in the interface and the copyright notice must remain
-visible in copies permitted by the accompanying license.
+When using, embedding, modifying, or redistributing this tool, retain the
+visible credit at the bottom of the application:
+
+**Designed and developed by KERLION** — the KERLION name must link to
+[https://www.kerlionvip.com](https://www.kerlionvip.com).
 
 ## License
 
-This project is provided under the [KERLION Tools License](LICENSE).
-The license permits inspection and local testing, while redistribution or
-public republishing requires prior written permission from KERLION.
+This project uses an MIT-based license with an additional KERLION attribution
+condition. See [LICENSE](LICENSE) for the exact terms.
+
+**License compatibility note:** The attribution condition is an additional
+restriction, so this is not the standard MIT License and is not OSI-approved
+Open Source Software under the OSI Open Source Definition.
