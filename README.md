@@ -68,6 +68,21 @@ https://www.kerlionvip.com
 
 ---
 
+# Open Source Tools | الأدوات البرمجية مفتوحة المصدر
+
+تضم هذه المجموعة ملفات المصدر للأدوات التي تطورها KERLION، بهدف إتاحة الاطلاع على بنيتها البرمجية وفهمها وتجربتها محليًا. يحتوي توثيق كل أداة على رابط الاستخدام المباشر ورابط الشرح العربي الموجه للمطورين.
+
+## JSON-LD Data Validator
+### فاحص بيانات JSON-LD
+
+أداة لفحص صيغة JSON وبنية بيانات JSON-LD، وعرض الملاحظات الأساسية، وتنسيق البيانات أو ضغطها، ونسخ تقرير الفحص.
+
+- **Live Tool:** [استخدام الأداة](https://www.kerlionvip.com/p/json-ld-data-validator.html)
+- **Arabic Guide:** [شرح الأداة للمطورين](https://www.kerlionvip.com/2026/11/json-ld-data-validator.html)
+- **Source Code:** [ملفات الأداة على GitHub](https://github.com/kerlion-com/kerlion-web-tools/tree/main/tools/json-ld-data-validator)
+
+---
+
 # Professional Services | الخدمات الاحترافية
 
 ## KERLION AI | Artificial Intelligence Services
