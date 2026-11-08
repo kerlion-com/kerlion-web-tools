@@ -83,6 +83,17 @@ https://www.kerlionvip.com
 
 ---
 
+## HTML Link Extractor
+### أداة استخراج الروابط من HTML
+
+أداة لاستخراج الروابط من كود HTML، مع خيارات لتحديد خصائص href وsrc، وتصنيف الروابط الداخلية والخارجية، وإزالة التكرار، وتصدير النتائج.
+
+- **Live Tool:** [استخدام الأداة](https://www.kerlionvip.com/p/html-link-extractor.html)
+- **Arabic Guide:** [شرح الأداة للمطورين](https://www.kerlionvip.com/2026/10/html-link-extractor.html)
+- **Source Code:** [ملفات الأداة على GitHub](https://github.com/kerlion-com/kerlion-web-tools/tree/main/tools/html-link-extractor)
+
+---
+
 # Professional Services | الخدمات الاحترافية
 
 ## KERLION AI | Artificial Intelligence Services
