@@ -183,6 +183,19 @@
 #kJsonLdChecker .kjc-faq-answer { margin: 0 !important; padding: 0 17px 17px !important; color: #405471 !important; font-size: 15px !important; line-height: 2 !important; }
 #kJsonLdChecker .kjc-footer { margin: 27px 0 0 !important; text-align: center !important; color: #405471 !important; font-size: 12px !important; font-weight: 700 !important; }
 #kJsonLdChecker .kjc-footer strong { color: #244cc7 !important; }
+#kJsonLdChecker .kjc-credit {
+  margin-top: 7px !important;
+  color: #405471 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+#kJsonLdChecker .kjc-credit a {
+  color: #244cc7 !important;
+  font-weight: 900 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+#kJsonLdChecker .kjc-credit a:hover { color: #17399d !important; }
 
 @media (max-width: 900px) {
   #kJsonLdChecker .kjc-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
