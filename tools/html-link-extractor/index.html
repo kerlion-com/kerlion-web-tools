@@ -1,0 +1,203 @@
+<!-- KERLION HTML Link Extractor | Standalone source project -->
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="أداة KERLION لاستخراج الروابط من كود HTML وتصنيفها ونسخها وتصديرها.">
+  <meta name="theme-color" content="#244cc7">
+  <title>أداة استخراج الروابط من HTML | KERLION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="kle-tool" dir="rtl" id="kLinkExtractor" lang="ar">
+  <div class="kle-wrap">
+    <header class="kle-hero">
+      <span class="kle-badge"><span class="kle-dot"></span> أدوات KERLION</span>
+      <h1 class="kle-title">أداة استخراج الروابط من <span>HTML</span> من KERLION</h1>
+      <p class="kle-intro">استخرج الروابط من كود HTML بسرعة، واعرض عنوان كل رابط والعنصر الذي ورد فيه، مع تصنيف الروابط الداخلية والخارجية عند إدخال رابط موقعك. انسخ النتائج أو نزلها للاستخدام في مراجعة الصفحات والأكواد.</p>
+    </header>
+
+    <section aria-labelledby="kleInputTitle" class="kle-panel">
+      <div class="kle-panel-head">
+        <span aria-hidden="true" class="kle-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg>
+        </span>
+        <h2 class="kle-panel-title" id="kleInputTitle">أدخل كود HTML</h2>
+      </div>
+      <p class="kle-panel-desc">الصق كود الصفحة أو الجزء الذي تريد فحصه. الأداة تقرأ الروابط الموجودة في خصائص href، ويمكنك اختيار استخراج موارد src أيضا.</p>
+      <div class="kle-field">
+        <label class="kle-label" for="kleHtmlSource">كود HTML</label>
+        <textarea class="kle-textarea kle-code" id="kleHtmlSource" placeholder="&lt;a href=&quot;https://example.com&quot;&gt;رابط تجريبي&lt;/a&gt;
+&lt;a href=&quot;/about.html&quot;&gt;عن الموقع&lt;/a&gt;
+&lt;img src=&quot;/images/logo.png&quot; alt=&quot;Logo&quot; /&gt;" spellcheck="false"></textarea>
+        <span class="kle-help">الصق كود HTML فقط. لا تضع الأكواد التي لا تريد تحليلها أو معلومات حساسة داخل الأداة.</span>
+      </div>
+
+      <div class="kle-options">
+        <div class="kle-field">
+          <label class="kle-label" for="kleMode">نوع الروابط المطلوب استخراجها</label>
+          <select class="kle-select" id="kleMode">
+            <option value="anchors">روابط a و area فقط</option>
+            <option selected value="href">كل الروابط في خصائص href</option>
+            <option value="hrefsrc">روابط href وموارد src</option>
+          </select>
+        </div>
+        <div class="kle-field">
+          <label class="kle-label" for="kleBaseUrl">رابط موقعك الأساسي (اختياري)</label>
+          <input class="kle-input" dir="ltr" id="kleBaseUrl" placeholder="https://www.example.com" type="url">
+          <span class="kle-help">اكتبه لتحديد الروابط الداخلية والخارجية وحل الروابط النسبية عند التصنيف.</span>
+        </div>
+      </div>
+
+      <div class="kle-checks">
+        <label class="kle-check"><input checked id="kleUnique" type="checkbox"> إزالة الروابط المكررة من النتائج</label>
+        <label class="kle-check"><input checked id="kleKeepFragments" type="checkbox"> الاحتفاظ بروابط أجزاء الصفحة مثل #section</label>
+      </div>
+
+      <div class="kle-buttons">
+        <button class="kle-btn kle-btn-primary" id="kleExtract" type="button">
+          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          استخراج الروابط
+        </button>
+        <button class="kle-btn" id="kleExample" type="button">تحميل مثال</button>
+        <button class="kle-btn" id="kleClear" type="button">مسح الحقول</button>
+      </div>
+      <div aria-live="polite" class="kle-status" id="kleStatus" role="status">الصق كود HTML ثم اضغط استخراج الروابط.</div>
+    </section>
+
+    <section aria-labelledby="kleResultsTitle" class="kle-panel">
+      <div class="kle-panel-head">
+        <span aria-hidden="true" class="kle-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="8" cy="5" r="1"/><circle cx="15" cy="12" r="1"/></svg>
+        </span>
+        <h2 class="kle-panel-title" id="kleResultsTitle">نتائج استخراج الروابط</h2>
+      </div>
+      <p class="kle-panel-desc">تظهر الروابط المستخرجة هنا مع اسم العنصر والخاصية. يتم عرض الرابط كنص فقط؛ لا تفتح الأداة الروابط ولا تزور عناوينها.</p>
+
+      <div class="kle-summary" id="kleSummary">
+        <div class="kle-summary-card"><span class="kle-summary-label">إجمالي ما تم العثور عليه</span><span class="kle-summary-value" id="kleTotal">0</span></div>
+        <div class="kle-summary-card"><span class="kle-summary-label">الروابط المعروضة</span><span class="kle-summary-value" id="kleShown">0</span></div>
+        <div class="kle-summary-card"><span class="kle-summary-label">المكررات</span><span class="kle-summary-value" id="kleDuplicates">0</span></div>
+        <div class="kle-summary-card"><span class="kle-summary-label">روابط داخلية</span><span class="kle-summary-value" id="kleInternal">0</span></div>
+      </div>
+
+      <div class="kle-results" id="kleResults">
+        <div class="kle-empty">ستظهر الروابط هنا بعد فحص كود HTML.</div>
+      </div>
+
+      <div class="kle-buttons">
+        <button class="kle-btn kle-btn-primary" id="kleCopyLinks" type="button">نسخ الروابط فقط</button>
+        <button class="kle-btn" id="kleDownloadTxt" type="button">تنزيل TXT</button>
+        <button class="kle-btn" id="kleDownloadCsv" type="button">تنزيل CSV</button>
+      </div>
+    </section>
+
+    <aside class="kle-note">
+      <strong>معلومة مهمة:</strong> الأداة تستخرج العناوين المكتوبة في كود HTML الذي تلصقه فقط. لا تقوم بزيارة الصفحات أو اكتشاف الروابط التي تظهر لاحقا بواسطة JavaScript، ولا تختبر ما إذا كان الرابط يعمل فعليا. قد تكون بعض القيم نسبية أو تستخدم بروتوكولات خاصة مثل mailto أو tel.
+    </aside>
+
+    <section aria-labelledby="kleFeaturesTitle" class="kle-section">
+      <h2 class="kle-section-title" id="kleFeaturesTitle">مميزات أداة استخراج الروابط من KERLION</h2>
+      <p class="kle-section-desc">راجع الروابط الموجودة داخل كود HTML من مكان واحد، مع أدوات تساعدك على تنظيم النتائج وتصديرها.</p>
+      <div class="kle-info-grid">
+        <article class="kle-info-card">
+          <div class="kle-info-head">
+            <span aria-hidden="true" class="kle-small-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg></span>
+            <h3>استخراج مرن</h3>
+          </div>
+          <p>استخرج روابط a وarea أو كل خصائص href، مع خيار يشمل خصائص src المستخدمة في موارد الصور والملفات.</p>
+        </article>
+        <article class="kle-info-card">
+          <div class="kle-info-head">
+            <span aria-hidden="true" class="kle-small-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><path d="m8 2 4 3-4 3"/></svg></span>
+            <h3>تقليل التكرار</h3>
+          </div>
+          <p>أزل الروابط المكررة من النتائج لتسهيل المراجعة، مع إظهار عدد العناصر التي تم العثور عليها قبل إزالة التكرار.</p>
+        </article>
+        <article class="kle-info-card">
+          <div class="kle-info-head">
+            <span aria-hidden="true" class="kle-small-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+            <h3>تصنيف الروابط</h3>
+          </div>
+          <p>عند إدخال النطاق الأساسي، تستطيع الأداة تمييز الروابط التي تنتمي إلى النطاق نفسه عن الروابط الخارجية.</p>
+        </article>
+        <article class="kle-info-card">
+          <div class="kle-info-head">
+            <span aria-hidden="true" class="kle-small-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></span>
+            <h3>نسخ وتصدير النتائج</h3>
+          </div>
+          <p>انسخ قائمة الروابط مباشرة أو نزل النتائج في ملف TXT أو CSV لمراجعتها في محرر نصوص أو جدول بيانات.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="kleStepsTitle" class="kle-section">
+      <h2 class="kle-section-title" id="kleStepsTitle">طريقة استخدام الأداة</h2>
+      <p class="kle-section-desc">ثلاث خطوات بسيطة لاستخراج الروابط من HTML وتنظيمها.</p>
+      <div class="kle-steps">
+        <article class="kle-step">
+          <div class="kle-step-head"><span class="kle-step-num">1</span><h3>الصق كود HTML</h3></div>
+          <p>انسخ كود الصفحة أو الجزء الذي تريد مراجعته والصقه في مربع الإدخال.</p>
+        </article>
+        <article class="kle-step">
+          <div class="kle-step-head"><span class="kle-step-num">2</span><h3>حدد خيارات الاستخراج</h3></div>
+          <p>اختر خصائص الروابط التي تريد فحصها، وأدخل رابط موقعك إذا أردت تصنيف الداخلي والخارجي.</p>
+        </article>
+        <article class="kle-step">
+          <div class="kle-step-head"><span class="kle-step-num">3</span><h3>راجع النتائج واحفظها</h3></div>
+          <p>راجع القائمة والعدادات، ثم انسخ الروابط أو نزل ملف TXT أو CSV.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="kleFaqTitle" class="kle-section">
+      <h2 class="kle-section-title" id="kleFaqTitle">الأسئلة الشائعة حول استخراج الروابط من HTML</h2>
+      <p class="kle-section-desc">إجابات عن طريقة استخراج الروابط والتصنيف وحدود الأداة.</p>
+      <div class="kle-faq">
+        <details class="kle-faq-item">
+          <summary><span>ما أنواع الروابط التي تستخرجها الأداة؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">يمكنها استخراج روابط a وarea فقط، أو جميع خصائص href، أو الجمع بين href وsrc مثل روابط الصور والبرامج النصية ومصادر الوسائط.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>ما الفرق بين الرابط الداخلي والخارجي؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">الرابط الداخلي يشير إلى النطاق نفسه الذي أدخلته، بينما يشير الرابط الخارجي إلى نطاق مختلف. أدخل رابط موقعك الأساسي للحصول على هذا التصنيف.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>هل تفتح الأداة الروابط أو تتحقق من عملها؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">لا. الأداة تقرأ القيم الموجودة في HTML الذي تلصقه فقط، ولا تزور الروابط ولا تتحقق من رموز الاستجابة أو وجود الصفحة.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>لماذا لا تظهر الروابط التي ينشئها JavaScript؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">لأن الأداة تحلل نص HTML كما تم لصقه، ولا تشغل كود الصفحة. إذا كان الرابط ينشأ أثناء تشغيل JavaScript، فلن يظهر إلا إذا كان موجودا داخل النص الذي أدخلته.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>هل يمكن إزالة الروابط المكررة؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">نعم. خيار إزالة التكرار مفعل افتراضيا. يمكنك إلغاء تفعيله لعرض كل ظهور للرابط، حتى لو تكرر في أكثر من عنصر.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>ما الفرق بين TXT وCSV؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">ملف TXT يحتوي على قائمة روابط بسيطة، بينما ملف CSV يضم الرابط والعنصر والخاصية ونوع الرابط، ويمكن فتحه في برامج الجداول.</p>
+        </details>
+        <details class="kle-faq-item">
+          <summary><span>هل تصنف الأداة الروابط النسبية؟</span><span aria-hidden="true" class="kle-faq-arrow"></span></summary>
+          <p class="kle-faq-answer">إذا أدخلت رابط الموقع الأساسي، تستطيع حل الروابط النسبية وتصنيفها مقارنة بالنطاق. من دون رابط أساسي تعرضها الأداة كما وردت في HTML من دون تخمين النطاق المقصود.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="kle-footer">
+      <strong>KERLION</strong> — أداة استخراج الروابط من HTML
+      <div class="kle-credit">
+        تم التصميم والتطوير بواسطة
+        <a href="https://www.kerlionvip.com" target="_blank" rel="noopener noreferrer">منصة KERLION</a>
+      </div>
+    </footer>
+  </div>
+</div>
+<script src="js/app.js" defer></script>
+</body>
+</html>
