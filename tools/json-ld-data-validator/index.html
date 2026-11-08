@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="فاحص بيانات JSON-LD من KERLION: أداة محلية لفحص صيغة JSON وبنية JSON-LD وتنسيق البيانات وضغطها.">
+  <meta name="theme-color" content="#244cc7">
+  <title>فاحص بيانات JSON-LD | KERLION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="kJsonLdChecker" class="kjc-tool" dir="rtl" lang="ar">
+<div class="kjc-wrap">
+    <header class="kjc-hero">
+      <span class="kjc-badge"><span class="kjc-dot"></span> أدوات KERLION</span>
+      <h1 class="kjc-title">فاحص بيانات <span>JSON-LD</span> من KERLION</h1>
+      <p class="kjc-intro">افحص صيغة بيانات JSON-LD، واكتشف أخطاء JSON الشائعة، وراجع وجود السياق والنوع وبعض الخصائص المهمة. الصق البيانات مباشرة أو الصق كود script الذي يحتوي عليها، ثم اعرض تقرير الفحص.</p>
+    </header>
+
+    <section class="kjc-panel" aria-labelledby="kjcInputTitle">
+      <div class="kjc-panel-head">
+        <span class="kjc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m14 4-4 16"/></svg>
+        </span>
+        <h2 class="kjc-panel-title" id="kjcInputTitle">أدخل بيانات JSON-LD</h2>
+      </div>
+      <p class="kjc-panel-desc">يمكنك لصق كائن JSON-LD مباشرة أو لصق وسم script كاملا. تفحص الأداة صيغة JSON محليا، وتقدم ملاحظات بنيوية تساعدك على مراجعة البيانات قبل استخدامها.</p>
+
+      <label class="kjc-label" for="kjcSource">كود JSON-LD أو وسم script</label>
+      <textarea class="kjc-textarea" id="kjcSource" spellcheck="false" placeholder='{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "عنوان المقال",
+  "author": {
+    "@type": "Person",
+    "name": "اسم الكاتب"
+  }
+}'></textarea>
+      <span class="kjc-help">يمكن فحص بيانات JSON-LD مباشرة أو استخراجها من وسم script من نوع application/ld+json. لا تلصق بيانات خاصة أو حساسة.</span>
+
+      <div class="kjc-buttons">
+        <button class="kjc-btn kjc-btn-primary" type="button" id="kjcCheck">
+          <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          فحص البيانات
+        </button>
+        <button class="kjc-btn" type="button" id="kjcFormat">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h12M4 15h16M4 20h8"/></svg>
+          تنسيق JSON
+        </button>
+        <button class="kjc-btn" type="button" id="kjcMinify">ضغط JSON</button>
+        <button class="kjc-btn" type="button" id="kjcCopyReport">نسخ تقرير الفحص</button>
+        <button class="kjc-btn" type="button" id="kjcExample">تحميل مثال</button>
+        <button class="kjc-btn" type="button" id="kjcClear">مسح الحقول</button>
+      </div>
+      <div class="kjc-status" id="kjcStatus" role="status" aria-live="polite">الصق البيانات ثم اضغط فحص البيانات لعرض التقرير.</div>
+      <div class="kjc-results" id="kjcResults" aria-live="polite">
+        <div class="kjc-empty">سيظهر تقرير الفحص هنا بعد تحليل البيانات.</div>
+      </div>
+    </section>
+
+    <aside class="kjc-note">
+      <strong>مهم:</strong> هذا الفاحص يراجع صحة صيغة JSON وبنية JSON-LD وبعض الخصائص الشائعة. لا يمثل اختبار Google الرسمي للنتائج المنسقة، ولا يضمن ظهور مظهر غني في البحث. بعد إصلاح الأخطاء، اختبر الصفحة المنشورة بأداة Google المناسبة وتأكد أن البيانات تطابق محتوى الصفحة المرئي.
+    </aside>
+
+    <section class="kjc-section" aria-labelledby="kjcFeaturesTitle">
+      <h2 class="kjc-section-title" id="kjcFeaturesTitle">مميزات فاحص JSON-LD من KERLION</h2>
+      <p class="kjc-section-desc">راجع الأخطاء والملاحظات الأساسية في مكان واحد، مع تقرير واضح يساعدك على تحديد الخطوة التالية.</p>
+      <div class="kjc-info-grid">
+        <article class="kjc-info-card">
+          <div class="kjc-info-head">
+            <span class="kjc-small-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span>
+            <h3>فحص صيغة JSON</h3>
+          </div>
+          <p>يكشف أخطاء الصيغة الشائعة مثل الفواصل الزائدة أو علامات الاقتباس الناقصة أو الأقواس غير المكتملة.</p>
+        </article>
+        <article class="kjc-info-card">
+          <div class="kjc-info-head">
+            <span class="kjc-small-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="8" cy="5" r="1"/><circle cx="15" cy="12" r="1"/></svg></span>
+            <h3>مراجعة السياق والنوع</h3>
+          </div>
+          <p>يراجع وجود @context و@type، ويعرض الأنواع التي اكتشفها داخل الكائن أو داخل @graph.</p>
+        </article>
+        <article class="kjc-info-card">
+          <div class="kjc-info-head">
+            <span class="kjc-small-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+            <h3>ملاحظات حسب نوع البيانات</h3>
+          </div>
+          <p>يقترح مراجعة خصائص شائعة في المقالات والمنتجات والفعاليات والمنظمات ومسارات التنقل، دون اعتبار كل ملاحظة خطأ مؤكدا.</p>
+        </article>
+        <article class="kjc-info-card">
+          <div class="kjc-info-head">
+            <span class="kjc-small-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></span>
+            <h3>تنسيق ونسخ التقرير</h3>
+          </div>
+          <p>نسق JSON أو اضغطه، وانسخ تقرير الفحص لمراجعته أو مشاركته مع المطور الذي يعمل على الموقع.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="kjc-section" aria-labelledby="kjcStepsTitle">
+      <h2 class="kjc-section-title" id="kjcStepsTitle">طريقة استخدام الأداة</h2>
+      <p class="kjc-section-desc">اتبع هذه الخطوات لمراجعة بياناتك بشكل واضح قبل نشرها.</p>
+      <div class="kjc-steps">
+        <article class="kjc-step">
+          <div class="kjc-step-head"><span class="kjc-step-num">1</span><h3>الصق البيانات</h3></div>
+          <p>الصق كود JSON-LD أو وسم script الذي يحتوي على البيانات في مربع الإدخال.</p>
+        </article>
+        <article class="kjc-step">
+          <div class="kjc-step-head"><span class="kjc-step-num">2</span><h3>شغل الفحص</h3></div>
+          <p>اضغط فحص البيانات واقرأ ملخص الصيغة والسياق والأنواع والملاحظات الظاهرة.</p>
+        </article>
+        <article class="kjc-step">
+          <div class="kjc-step-head"><span class="kjc-step-num">3</span><h3>أصلح ثم اختبر</h3></div>
+          <p>صحح الأخطاء، ثم افحص البيانات مرة أخرى. بعد ذلك اختبر الصفحة المنشورة بأداة Google الرسمية إذا كان هدفك النتائج المنسقة.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="kjc-section" aria-labelledby="kjcExamplesTitle">
+      <h2 class="kjc-section-title" id="kjcExamplesTitle">مثال صحيح لبيانات JSON-LD</h2>
+      <p class="kjc-section-desc">يمكنك تحميل المثال إلى الفاحص والتعرف على شكل كائن بسيط يحتوي على السياق والنوع والعنوان.</p>
+      <div class="kjc-panel">
+        <pre style="margin:0!important;padding:15px!important;border:1px solid #c7d5e9!important;border-radius:11px!important;background:#f7f9ff!important;color:#172744!important;direction:ltr!important;text-align:left!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important;font:14px/1.8 Consolas,Monaco,'Courier New',monospace!important">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "عنوان المقال",
+  "description": "وصف مختصر يطابق محتوى المقال",
+  "author": {
+    "@type": "Person",
+    "name": "اسم الكاتب"
+  },
+  "datePublished": "2026-10-10"
+}</pre>
+      </div>
+    </section>
+
+    <div class="kjc-google-cta">
+      <a class="kjc-btn kjc-btn-primary" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">
+        فتح اختبار النتائج المنسقة من Google
+      </a>
+    </div>
+
+    <section class="kjc-section" aria-labelledby="kjcFaqTitle">
+      <h2 class="kjc-section-title" id="kjcFaqTitle">الأسئلة الشائعة حول JSON-LD</h2>
+      <p class="kjc-section-desc">إجابات عن الفحص المحلي والخصائص والفرق بين صحة الصيغة وظهور النتائج المنسقة.</p>
+      <div class="kjc-faq">
+        <details class="kjc-faq-item">
+          <summary><span>ما المقصود ببيانات JSON-LD؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">JSON-LD طريقة لتمثيل البيانات المنظمة بصيغة JSON وربطها بمفردات مثل Schema.org حتى تتمكن الأنظمة من فهم معلومات الصفحة بشكل أوضح.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>ما الفرق بين JSON وJSON-LD؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">JSON صيغة عامة لتبادل البيانات. أما JSON-LD فيستخدم بنية JSON مع مفاتيح مثل @context و@type لتحديد معنى البيانات وربطها بمفردات منظمة.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>هل يكفي أن تكون صيغة JSON صحيحة؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">صحة JSON خطوة أساسية لكنها لا تثبت وحدها أن البيانات مناسبة لنوع Schema.org أو مستوفية متطلبات ميزة محددة في Google. قد تحتاج إلى مراجعة الخصائص والسياسات والصفحة المنشورة.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>لماذا تظهر ملاحظات على خصائص البيانات؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">تقدم الأداة اقتراحات أولية حول خصائص شائعة حسب النوع المكتشف. ليست كل خاصية مقترحة إلزامية في كل حالة، لذلك راجع نوع البيانات والغرض منها قبل تعديلها.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>هل يفحص الفاحص الصفحة المنشورة على الإنترنت؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">لا، يفحص الكود الذي تلصقه في الأداة. لا يزور عنوان الصفحة ولا يفحص نسخة الكود الموجودة فعليا في الموقع أو البيانات المخزنة مؤقتا لدى Google.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>هل يضمن الفحص ظهور نتيجة منسقة في Google؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">لا. ظهور النتائج المنسقة يعتمد على نوع الميزة وأهلية الصفحة وجودة البيانات وسياسات Google، وحتى البيانات الصحيحة قد لا تظهر بشكل غني في نتائج البحث.</p>
+        </details>
+        <details class="kjc-faq-item">
+          <summary><span>أين أختبر أهلية الصفحة للنتائج المنسقة؟</span><span class="kjc-faq-arrow" aria-hidden="true"></span></summary>
+          <p class="kjc-faq-answer">بعد فحص الصيغة، اختبر عنوان الصفحة المنشورة أو الكود باستخدام اختبار النتائج المنسقة من Google، ثم راجع تقرير الفهرسة والتحسينات المتاح في Search Console عند انطباقه.</p>
+        </details>
+      </div>
+
+    </section>
+
+    <footer class="kjc-footer"><strong style="color:#244cc7!important">KERLION</strong> — فاحص بيانات JSON-LD</footer>
+  </div>
+  </div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
