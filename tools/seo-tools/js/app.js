@@ -35,10 +35,10 @@ var SITEMAP_PATTERNS = [
 var STORAGE_KEY = 'kerlion_seo_last_url';
 
 /* ===== عناصر DOM ===== */
-var urlInput = root.querySelector('#'tool-url-input');
-var errorEl = root.querySelector('#'tool-error');
-var cleanInfoEl = root.querySelector('#'tool-clean-info');
-var toastEl = root.querySelector('#'tool-toast');
+var urlInput = root.querySelector('#tool-url-input');
+var errorEl = root.querySelector('#tool-error');
+var cleanInfoEl = root.querySelector('#tool-clean-info');
+var toastEl = root.querySelector('#tool-toast');
 var toastTimer = null;
 
 /* استرجاع آخر موقع */
@@ -173,9 +173,9 @@ root.querySelectorAll('.tool-tab').forEach ? root.querySelectorAll('.tool-tab').
 })();
 
 /* ===== 1) توليد روابط Sitemap ===== */
-var sitemapList = root.querySelector('#'tool-sitemap-list');
-var copyAllSitemapBtn = root.querySelector('#'tool-copyall-sitemap');
-var dlSitemapBtn = root.querySelector('#'tool-dl-sitemap');
+var sitemapList = root.querySelector('#tool-sitemap-list');
+var copyAllSitemapBtn = root.querySelector('#tool-copyall-sitemap');
+var dlSitemapBtn = root.querySelector('#tool-dl-sitemap');
 var sitemapUrls = [];
 
 function generateSitemap(){
@@ -229,7 +229,7 @@ function generateSitemap(){
   showToast('تم توليد ' + sitemapUrls.length + ' رابط جاهز للنسخ');
 }
 
-root.querySelector('#'tool-gen-sitemap').addEventListener('click', generateSitemap);
+root.querySelector('#tool-gen-sitemap').addEventListener('click', generateSitemap);
 copyAllSitemapBtn.addEventListener('click', function(){
   if(sitemapUrls.length === 0){ showToast('لا توجد روابط'); return; }
   copyToClipboard(sitemapUrls.join('\n'));
@@ -252,20 +252,20 @@ function generateRobots(){
   content += 'Disallow: /search\n';
   content += 'Allow: /\n\n';
   content += 'Sitemap: ' + baseUrl + '/sitemap.xml\n';
-  root.querySelector('#'tool-box-robots').value = content;
-  root.querySelector('#'tool-result-robots').classList.add('show');
+  root.querySelector('#tool-box-robots').value = content;
+  root.querySelector('#tool-result-robots').classList.add('show');
   showToast('تم توليد ملف robots.txt');
 }
-root.querySelector('#'tool-gen-robots').addEventListener('click', generateRobots);
-root.querySelector('#'tool-copy-robots').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-robots').value;
+root.querySelector('#tool-gen-robots').addEventListener('click', generateRobots);
+root.querySelector('#tool-copy-robots').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-robots').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   copyToClipboard(v);
   showToast('تم نسخ الملف');
   markCopied(this);
 });
-root.querySelector('#'tool-dl-robots').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-robots').value;
+root.querySelector('#tool-dl-robots').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-robots').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   downloadText('robots.txt', v);
   showToast('تم تنزيل الملف');
@@ -275,7 +275,7 @@ root.querySelector('#'tool-dl-robots').addEventListener('click', function(){
 function generateAds(){
   var baseUrl = getBaseUrl();
   if(!baseUrl) return;
-  var pubId = root.querySelector('#'tool-pub-id').value.trim();
+  var pubId = root.querySelector('#tool-pub-id').value.trim();
   if(!pubId){
     pubId = 'pub-0000000000000000';
     showToast('لم تدخل معرّف الناشر — تم توليد قالب افتراضي');
@@ -283,20 +283,20 @@ function generateAds(){
     pubId = 'pub-' + pubId.replace(/^pub-/i,'');
   }
   var content = 'google.com, ' + pubId + ', DIRECT, f08c47fec0942fa0\n';
-  root.querySelector('#'tool-box-ads').value = content;
-  root.querySelector('#'tool-result-ads').classList.add('show');
+  root.querySelector('#tool-box-ads').value = content;
+  root.querySelector('#tool-result-ads').classList.add('show');
   if(pubId !== 'pub-0000000000000000') showToast('تم توليد ملف ads.txt');
 }
-root.querySelector('#'tool-gen-ads').addEventListener('click', generateAds);
-root.querySelector('#'tool-copy-ads').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-ads').value;
+root.querySelector('#tool-gen-ads').addEventListener('click', generateAds);
+root.querySelector('#tool-copy-ads').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-ads').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   copyToClipboard(v);
   showToast('تم نسخ الملف');
   markCopied(this);
 });
-root.querySelector('#'tool-dl-ads').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-ads').value;
+root.querySelector('#tool-dl-ads').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-ads').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   downloadText('ads.txt', v);
   showToast('تم تنزيل الملف');
@@ -306,9 +306,9 @@ root.querySelector('#'tool-dl-ads').addEventListener('click', function(){
 function generateMeta(){
   var baseUrl = getBaseUrl();
   if(!baseUrl) return;
-  var title = root.querySelector('#'tool-meta-title').value.trim() || 'موقعي الإلكتروني';
-  var desc = root.querySelector('#'tool-meta-desc').value.trim() || 'وصف موقعك الإلكتروني يظهر هنا في محركات البحث وعلى منصات التواصل';
-  var image = root.querySelector('#'tool-meta-image').value.trim() || (baseUrl + '/favicon.ico');
+  var title = root.querySelector('#tool-meta-title').value.trim() || 'موقعي الإلكتروني';
+  var desc = root.querySelector('#tool-meta-desc').value.trim() || 'وصف موقعك الإلكتروني يظهر هنا في محركات البحث وعلى منصات التواصل';
+  var image = root.querySelector('#tool-meta-image').value.trim() || (baseUrl + '/favicon.ico');
 
   var c = '';
   c += '<!-- ===== Meta Tags SEO ===== -->\n';
@@ -334,8 +334,8 @@ function generateMeta(){
   c += '<meta name="twitter:description" content="' + escapeAttr(desc) + '">\n';
   c += '<meta name="twitter:image" content="' + escapeAttr(image) + '">\n';
 
-  root.querySelector('#'tool-box-meta').value = c;
-  root.querySelector('#'tool-result-meta').classList.add('show');
+  root.querySelector('#tool-box-meta').value = c;
+  root.querySelector('#tool-result-meta').classList.add('show');
   showToast('تم توليد أكواد الميتا تاج');
 }
 
@@ -343,16 +343,16 @@ function escapeAttr(s){
   return String(s).replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-root.querySelector('#'tool-gen-meta').addEventListener('click', generateMeta);
-root.querySelector('#'tool-copy-meta').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-meta').value;
+root.querySelector('#tool-gen-meta').addEventListener('click', generateMeta);
+root.querySelector('#tool-copy-meta').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-meta').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   copyToClipboard(v);
   showToast('تم نسخ الأكواد');
   markCopied(this);
 });
-root.querySelector('#'tool-dl-meta').addEventListener('click', function(){
-  var v = root.querySelector('#'tool-box-meta').value;
+root.querySelector('#tool-dl-meta').addEventListener('click', function(){
+  var v = root.querySelector('#tool-box-meta').value;
   if(!v){ showToast('لا يوجد محتوى'); return; }
   downloadText('meta-tags.txt', v);
   showToast('تم تنزيل الملف');
