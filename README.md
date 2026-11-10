@@ -105,6 +105,17 @@ https://www.kerlionvip.com
 
 ---
 
+## KERLION SEO Tools
+### Search Engine Optimization Utilities
+
+A collection of four browser-based tools for generating Sitemap URL suggestions, robots.txt, ads.txt, and Meta Tags.
+
+- **Live Tool:** [Open KERLION SEO Tools](https://www.kerlionvip.com/p/blog-page_15.html)
+- **Arabic Developer Guide:** [Read the Arabic guide](https://www.kerlionvip.com/2026/11/kerlion-seo-tools.html)
+- **Source Code:** [Browse SEO Tools files](https://github.com/kerlion-com/kerlion-web-tools/tree/main/tools/seo-tools)
+
+---
+
 # Professional Services | الخدمات الاحترافية
 
 ## KERLION AI | Artificial Intelligence Services
