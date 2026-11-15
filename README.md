@@ -155,3 +155,9 @@ Our mission is to make useful digital tools and technology solutions accessible 
 **Explore Tools. Discover Technology. Build Better Solutions.**
 
 **Official Website:** https://www.kerlionvip.com
+
+## PDF to Word Converter
+
+- **Live Tool:** [Use PDF to Word Converter](https://www.kerlionvip.com/p/pdf-to-word-converter.html)
+- **Arabic Developer Guide:** [Read the guide](https://www.kerlionvip.com/2026/08/pdf-to-word-converter.html)
+- **Source Code:** [tools/pdf-to-word-converter](https://github.com/kerlion-com/kerlion-web-tools/tree/main/tools/pdf-to-word-converter)
