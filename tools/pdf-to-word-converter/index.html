@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="حوّل ملفات PDF النصية إلى مستندات Word DOCX داخل متصفحك باستخدام أداة KERLION.">
+  <meta name="theme-color" content="#047857">
+  <title>محول PDF إلى Word | KERLION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="krl-pdfword-app" id="kerlionPdfWordConverter" dir="rtl" lang="ar">
+
+  <!-- Header -->
+  <div class="krl-pdfword-header">
+    <div class="krl-pdfword-header-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+    </div>
+    <div class="krl-pdfword-header-text">
+      <p class="krl-pdfword-title">محول PDF إلى Word</p>
+      <p class="krl-pdfword-subtitle">حول ملفات PDF النصية إلى مستندات Word بسهولة وأمان داخل متصفحك</p>
+    </div>
+  </div>
+
+  <!-- Upload Zone -->
+  <div class="krl-pdfword-upload-card">
+    <div class="krl-pdfword-drop-zone" role="button" tabindex="0" aria-label="اسحب ملف PDF هنا أو انقر لاختيار ملف">
+      <div class="krl-pdfword-upload-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+      </div>
+      <p class="krl-pdfword-upload-text">اسحب ملف PDF هنا أو انقر لاختيار ملف</p>
+      <p class="krl-pdfword-upload-hint">الحد الأقصى لحجم الملف: 50 ميجابايت</p>
+    </div>
+    <input type="file" class="krl-pdfword-file-input" accept=".pdf,application/pdf" aria-label="اختيار ملف PDF">
+  </div>
+
+  <!-- Error Message -->
+  <div class="krl-pdfword-error-msg" role="alert">
+    <span class="krl-pdfword-error-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+    </span>
+    <p class="krl-pdfword-error-text"></p>
+  </div>
+
+  <!-- File Info -->
+  <div class="krl-pdfword-file-info">
+    <span class="krl-pdfword-file-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+    </span>
+    <div class="krl-pdfword-file-details">
+      <p class="krl-pdfword-filename"></p>
+      <p class="krl-pdfword-filesize"></p>
+    </div>
+    <button type="button" class="krl-pdfword-remove-btn" aria-label="إزالة الملف">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+
+  <!-- Convert Button -->
+  <div class="krl-pdfword-convert-section">
+    <button type="button" class="krl-pdfword-convert-btn" aria-label="بدء تحويل الملف إلى Word">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+      بدء التحويل
+    </button>
+  </div>
+
+  <!-- Progress -->
+  <div class="krl-pdfword-progress-section">
+    <div class="krl-pdfword-progress-top">
+      <p class="krl-pdfword-progress-label">جاري التحويل...</p>
+      <p class="krl-pdfword-progress-pct">0%</p>
+    </div>
+    <div class="krl-pdfword-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="krl-pdfword-progress-fill"></div>
+    </div>
+    <p class="krl-pdfword-progress-msg"></p>
+  </div>
+
+  <!-- Success -->
+  <div class="krl-pdfword-success-section">
+    <div class="krl-pdfword-success-row">
+      <span class="krl-pdfword-success-check">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </span>
+      <p class="krl-pdfword-success-msg">تم التحويل بنجاح!</p>
+    </div>
+    <div class="krl-pdfword-btns-row">
+      <button type="button" class="krl-pdfword-download-btn" aria-label="تنزيل ملف Word">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        تنزيل ملف Word
+      </button>
+      <button type="button" class="krl-pdfword-again-btn" aria-label="تحويل ملف آخر">تحويل ملف آخر</button>
+    </div>
+    <p class="krl-pdfword-output-name"></p>
+  </div>
+
+  <!-- Retry -->
+  <div class="krl-pdfword-retry-section">
+    <button type="button" class="krl-pdfword-retry-btn" aria-label="المحاولة مرة أخرى">المحاولة مرة أخرى</button>
+  </div>
+
+  <!-- Notes -->
+  <div class="krl-pdfword-notes">
+    <p class="krl-pdfword-notes-title">ملاحظات مهمة:</p>
+    <div class="krl-pdfword-note-item">
+      <span class="krl-pdfword-note-dot"></span>
+      <span class="krl-pdfword-note-text">تتم معالجة الملفات بالكامل داخل متصفحك ولا يتم إرسالها إلى أي خادم خارجي.</span>
+    </div>
+    <div class="krl-pdfword-note-item">
+      <span class="krl-pdfword-note-dot"></span>
+      <span class="krl-pdfword-note-text">تعمل الأداة مع ملفات PDF النصية. لا تدعم الملفات الممسوحة ضوئيا (OCR).</span>
+    </div>
+    <div class="krl-pdfword-note-item">
+      <span class="krl-pdfword-note-dot"></span>
+      <span class="krl-pdfword-note-text">جودة التحويل تعتمد على بنية ملف PDF الأصلي. قد لا تحفظ التنسيقات المعقدة بشكل كامل.</span>
+    </div>
+    <div class="krl-pdfword-note-item">
+      <span class="krl-pdfword-note-dot"></span>
+      <span class="krl-pdfword-note-text">لا يتم تخزين أي ملفات بعد انتهاء التحويل.</span>
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="krl-pdfword-seo">
+    <p class="krl-pdfword-seo-title">كيف تعمل أداة تحويل PDF إلى Word؟</p>
+    <p class="krl-pdfword-seo-p">تقوم هذه الأداة بقراءة ملف PDF المحدد واستخراج النصوص منه صفحة بصفحة، ثم تنشئ مستند Word جديد يحتوي على النصوص المستخرجة. تتم جميع عمليات المعالجة داخل متصفحك مباشرة دون الحاجة لرفع الملفات إلى أي خادم، مما يضمن خصوصية وأمان مستنداتك.</p>
+    <p class="krl-pdfword-seo-title">الملفات المدعومة</p>
+    <p class="krl-pdfword-seo-p">تقبل الأداة ملفات PDF النصية بحجم أقصى 50 ميجابايت. يجب أن يكون الملف غير محمي بكلمة مرور وأن يحتوي على نصوص قابلة للاستخراج (وليس صورا ممسوحة ضوئيا). الملف الناتج يكون بصيغة DOCX متوافقة مع Microsoft Word وبرامج تحرير النصوص الأخرى.</p>
+    <p class="krl-pdfword-seo-title">حدود التحويل</p>
+    <p class="krl-pdfword-seo-p">الأداة تستخرج النصوص من ملفات PDF وتحولها إلى فقرات في مستند Word. التنسيقات المعقدة مثل الجداول والأعمدة والصور المدمجة قد لا تنقل بدقة. لضمان أفضل نتائج، ينصح باستخدام ملفات PDF ذات النص البسيط والترتيب الواضح.</p>
+  </div>
+
+  <!-- FAQ Section -->
+
+  <!-- Educational Guide -->
+  <div class="krl-pdfword-guide-grid">
+    <div class="krl-pdfword-guide-card">
+      <p class="krl-pdfword-guide-title">كيف تحصل على أفضل نتيجة من التحويل؟</p>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-num">1</span><span>استخدم ملف PDF يحتوي على نص قابل للاستخراج، لأن الأداة لا تتضمن OCR للملفات الممسوحة ضوئيا.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-num">2</span><span>يفضل أن يكون ترتيب النص واضحا لتقليل اختلاف توزيع الفقرات في ملف Word الناتج.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-num">3</span><span>راجع المستند الناتج إذا كان الملف الأصلي يحتوي على جداول أو أعمدة أو عناصر مرئية معقدة.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-num">4</span><span>إذا فشل التحويل، تأكد من أن الملف صالح وغير محمي بكلمة مرور ثم أعد المحاولة.</span></div>
+    </div>
+    <div class="krl-pdfword-guide-card">
+      <p class="krl-pdfword-guide-title">متى تحتاج إلى مراجعة ملف Word الناتج؟</p>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-dot"></span><span>الجداول والأعمدة المتعددة قد تحتاج إلى تنسيق يدوي بعد التحويل.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-dot"></span><span>الصور والعناصر الرسومية قد لا تنتقل بنفس الشكل لأن الأداة تركز على استخراج النص.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-dot"></span><span>الملفات الممسوحة ضوئيا تحتاج إلى OCR، وهو غير متوفر في النسخة الحالية.</span></div>
+      <div class="krl-pdfword-guide-item"><span class="krl-pdfword-guide-dot"></span><span>كلما كان النص الأصلي أبسط وأكثر وضوحا، كانت المراجعة أسهل بعد التحويل.</span></div>
+    </div>
+  </div>
+
+  <div class="krl-pdfword-faq">
+    <p class="krl-pdfword-faq-title">أسئلة شائعة</p>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يتم رفع ملف PDF إلى خادم خارجي؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">بحسب الكود الحالي، معالجة الملف تتم داخل المتصفح ولا يوجد مسار لرفع الملف إلى خادم خارجي أثناء عملية التحويل.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">ما الحد الأقصى لحجم ملف PDF؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">الحد الموجود في الكود هو 50 ميجابايت لكل ملف، وأي ملف يتجاوز هذا الحجم يتم رفضه قبل بدء التحويل.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل تدعم الأداة الملفات الممسوحة ضوئيا؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">لا. الأداة تعمل مع ملفات PDF التي تحتوي على نص قابل للاستخراج، ولا تتضمن تقنية OCR للملفات التي تكون صفحاتها صورا ممسوحة ضوئيا.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يمكن تحويل ملف PDF محمي بكلمة مرور؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">لا. النسخة الحالية لا تدعم ملفات PDF المحمية بكلمة مرور، ويجب إزالة الحماية قبل محاولة التحويل.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">ما صيغة الملف الناتج؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">النتيجة تكون ملف DOCX يمكن فتحه وتحريره باستخدام Microsoft Word وبرامج تحرير المستندات المتوافقة.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يتم الحفاظ على التنسيق الأصلي بالكامل؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">لا يمكن ضمان نقل كل التنسيقات المعقدة بدقة كاملة. الأداة تركز على استخراج النص وترتيبه في فقرات، وقد تحتاج الجداول والأعمدة والصور إلى مراجعة بعد التحويل.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يمكن استخدام الأداة على الهاتف؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">نعم. التصميم متجاوب ويمكن اختيار ملف PDF من الهاتف أو الجهاز اللوحي ثم تنفيذ عملية التحويل من المتصفح.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">ماذا يحدث إذا كان الملف يحتوي على صور وجداول؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">يمكن استخراج النص الموجود في الملف، لكن الجداول والأعمدة والصور المدمجة قد لا تنتقل إلى Word بنفس الشكل الأصلي.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يمكن إعادة المحاولة بعد حدوث خطأ؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">نعم. تظهر منطقة للمحاولة مرة أخرى عند فشل التحويل، ويمكنك إعادة تشغيل العملية للملف المحدد.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يمكن تحويل ملف آخر بعد الانتهاء؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">نعم. يوجد زر لتحويل ملف آخر يعيد الأداة إلى حالة اختيار ملف جديد.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يحتفظ الملف الناتج باسم الملف الأصلي؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">يتم أخذ اسم ملف PDF الأصلي وإزالة الامتداد ثم إضافة امتداد DOCX ليصبح اسم المستند الناتج مناسبا للملف المصدر.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">ماذا يحدث إذا لم يحتو ملف PDF على نص قابل للاستخراج؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">قد لا ينتج مستندا مفيدا، لأن الأداة لا تستخدم OCR لتحويل محتوى الصفحات المصورة إلى نص.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل تحتاج الأداة إلى تثبيت برنامج؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">لا. التحويل يتم داخل المتصفح بعد تحميل المكتبات المطلوبة للصفحة، ولا تحتاج إلى برنامج منفصل.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">هل يمكن تعديل ملف Word بعد التحويل؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">نعم. الناتج بصيغة DOCX ويمكن فتحه وتعديل النص داخل برامج تحرير المستندات المتوافقة.</p></div>
+    </div>
+    <div class="krl-pdfword-faq-item">
+      <div class="krl-pdfword-faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="krl-pdfword-faq-q-text">كيف أستخدم محول PDF إلى Word؟</span>
+        <span class="krl-pdfword-faq-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </div>
+      <div class="krl-pdfword-faq-a" role="region"><p class="krl-pdfword-faq-a-text">اختر ملف PDF، انتظر حتى تتعرف الأداة عليه، اضغط بدء التحويل، تابع شريط التقدم، ثم نزل ملف Word الناتج عند اكتمال العملية.</p></div>
+    </div>
+  </div>
+
+
+
+  <footer class="krl-pdfword-credit" aria-label="حقوق ونسبة KERLION">
+    <p>جميع الحقوق محفوظة لمنصة KERLION</p>
+    <p>تم التصميم والتطوير بواسطة
+      <a href="https://www.kerlionvip.com" target="_blank" rel="noopener noreferrer">منصة KERLION</a>
+    </p>
+  </footer>
+</div>
+<script src="js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+/* ── PDF to Word Converter Widget – Isolated Styles ── */
+.krl-pdfword-app{
+  font-family:'Cairo',sans-serif;
+  max-width:1000px;
+  margin:20px auto;
+  direction:rtl;
+  line-height:1.7;
+}
+.krl-pdfword-app *{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+/* Header */
+.krl-pdfword-header{
+  background:linear-gradient(to left,#059669,#047857);
+  color:#fff;
+  padding:24px 28px;
+  border-radius:16px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.krl-pdfword-header-icon{
+  width:52px;height:52px;
+  background:rgba(255,255,255,.18);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.krl-pdfword-header-icon svg{stroke:#fffcfc;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.krl-pdfword-header-text{flex:1;min-width:0;}
+.krl-pdfword-title{
+  font-size:20px;
+  font-weight:700;
+  line-height:1.3;
+}
+.krl-pdfword-subtitle{
+  font-size:14px;
+  color:rgba(255,255,255,.85);
+  margin-top:4px;
+}
+/* Upload Card */
+.krl-pdfword-upload-card{
+  background:#f0f2f5;
+  border:1px solid #3483ed;
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:12px;
+}
+.krl-pdfword-drop-zone{
+  padding:40px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:background .2s;
+  background:#d1dce8;
+}
+.krl-pdfword-drop-zone:hover,
+.krl-pdfword-drop-zone.krl-pdfword-dragover{
+  background:#ecfdf5;
+}
+.krl-pdfword-drop-zone.krl-pdfword-disabled{
+  cursor:not-allowed;
+  opacity:.6;
+}
+.krl-pdfword-upload-icon{
+  margin:0 auto 12px;
+  color:#94a3b8;
+  transition:color .2s;
+}
+.krl-pdfword-drop-zone:hover .krl-pdfword-upload-icon,
+.krl-pdfword-drop-zone.krl-pdfword-dragover .krl-pdfword-upload-icon{
+  color:#059669;
+}
+.krl-pdfword-upload-text{
+  font-size:16px;
+  font-weight:600;
+  color:#334155;
+  margin-bottom:4px;
+}
+.krl-pdfword-upload-hint{
+  font-size:13px;
+  color:#94a3b8;
+}
+.krl-pdfword-file-input{display:none;}
+/* Error Message */
+.krl-pdfword-error-msg{
+  display:none;
+  background:#fef2f2;
+  border:1px solid #fecaca;
+  border-radius:12px;
+  padding:14px 18px;
+  margin-bottom:12px;
+  align-items:flex-start;
+  gap:10px;
+}
+.krl-pdfword-error-msg.krl-pdfword-visible{display:flex;}
+.krl-pdfword-error-icon{color:#ef4444;flex-shrink:0;margin-top:2px;}
+.krl-pdfword-error-text{color:#b91c1c;font-size:14px;line-height:1.6;}
+/* File Info */
+.krl-pdfword-file-info{
+  display:none;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:14px 18px;
+  margin-bottom:12px;
+  align-items:center;
+  gap:12px;
+}
+.krl-pdfword-file-info.krl-pdfword-visible{display:flex;}
+.krl-pdfword-file-icon{color:#059669;flex-shrink:0;}
+.krl-pdfword-file-details{flex:1;min-width:0;}
+.krl-pdfword-filename{color:#1e293b;font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.krl-pdfword-filesize{color:#94a3b8;font-size:12px;margin-top:2px;}
+.krl-pdfword-remove-btn{
+  background:none;border:none;
+  color:#94a3b8;cursor:pointer;
+  padding:6px;border-radius:8px;
+  transition:all .15s;
+  display:flex;align-items:center;justify-content:center;
+}
+.krl-pdfword-remove-btn:hover{color:#ef4444;background:#fef2f2;}
+/* Buttons (scoped) */
+.krl-pdfword-convert-btn,
+.krl-pdfword-download-btn,
+.krl-pdfword-retry-btn,
+.krl-pdfword-again-btn{
+  border:none;cursor:pointer;
+  font-family:'Cairo',sans-serif;
+  font-weight:600;
+  border-radius:12px;
+  transition:background .15s,transform .1s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.krl-pdfword-convert-btn:active,
+.krl-pdfword-download-btn:active,
+.krl-pdfword-retry-btn:active,
+.krl-pdfword-again-btn:active{
+  transform:scale(.98);
+}
+.krl-pdfword-convert-section{
+  display:none;
+  margin-bottom:12px;
+}
+.krl-pdfword-convert-section.krl-pdfword-visible{display:block;}
+.krl-pdfword-convert-btn{
+  width:100%;
+  background:#059669;color:#fff;
+  padding:14px 24px;font-size:16px;
+}
+.krl-pdfword-convert-btn:hover{background:#047857;}
+.krl-pdfword-convert-btn:focus-visible,
+.krl-pdfword-download-btn:focus-visible,
+.krl-pdfword-retry-btn:focus-visible,
+.krl-pdfword-again-btn:focus-visible{
+  outline:2px solid #059669;
+  outline-offset:2px;
+}
+/* Progress */
+.krl-pdfword-progress-section{
+  display:none;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:12px;
+}
+.krl-pdfword-progress-section.krl-pdfword-visible{display:block;}
+.krl-pdfword-progress-top{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:10px;
+}
+.krl-pdfword-progress-label{color:#334155;font-weight:600;font-size:14px;}
+.krl-pdfword-progress-pct{color:#059669;font-weight:700;font-size:14px;}
+.krl-pdfword-progress-bar{
+  width:100%;background:#f1f5f9;
+  border-radius:99px;height:10px;
+  overflow:hidden;
+}
+.krl-pdfword-progress-fill{
+  height:100%;background:#10b981;
+  border-radius:99px;
+  transition:width .3s ease-out;
+  width:0%;
+}
+.krl-pdfword-progress-msg{
+  color:#94a3b8;font-size:12px;margin-top:8px;
+}
+/* Success */
+.krl-pdfword-success-section{
+  display:none;
+  background:#ecfdf5;
+  border:1px solid #a7f3d0;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:12px;
+}
+.krl-pdfword-success-section.krl-pdfword-visible{display:block;}
+.krl-pdfword-success-row{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:16px;
+}
+.krl-pdfword-success-check{color:#059669;}
+.krl-pdfword-success-msg{color:#065f46;font-weight:700;font-size:16px;}
+.krl-pdfword-btns-row{
+  display:flex;gap:12px;
+}
+.krl-pdfword-download-btn{
+  flex:1;background:#059669;color:#fff;
+  padding:12px 20px;font-size:14px;
+}
+.krl-pdfword-download-btn:hover{background:#047857;}
+.krl-pdfword-again-btn{
+  flex:1;background:#fff;color:#475569;
+  border:1px solid #e2e8f0;
+  padding:12px 20px;font-size:14px;
+}
+.krl-pdfword-again-btn:hover{background:#f8fafc;}
+.krl-pdfword-output-name{
+  color:rgba(5,150,105,.65);font-size:12px;text-align:center;margin-top:12px;
+}
+/* Retry */
+.krl-pdfword-retry-section{
+  display:none;
+  margin-bottom:12px;
+}
+.krl-pdfword-retry-section.krl-pdfword-visible{display:block;}
+.krl-pdfword-retry-btn{
+  width:100%;background:#fff;color:#475569;
+  border:1px solid #e2e8f0;
+  padding:12px 20px;font-size:14px;
+}
+.krl-pdfword-retry-btn:hover{background:#f8fafc;}
+/* Notes */
+.krl-pdfword-notes{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:22px 24px;
+  margin-bottom:16px;
+}
+.krl-pdfword-notes-title{
+  color:#1e293b;font-weight:700;font-size:14px;margin-bottom:12px;
+}
+.krl-pdfword-note-item{
+  display:flex;align-items:flex-start;gap:10px;
+  margin-bottom:10px;
+}
+.krl-pdfword-note-item:last-child{margin-bottom:0;}
+.krl-pdfword-note-dot{
+  width:6px;height:6px;min-width:6px;
+  background:#10b981;border-radius:50%;
+  margin-top:9px;
+}
+.krl-pdfword-note-text{
+  color:#1b2129;font-size:13px;line-height:1.7;
+}
+/* SEO Content */
+.krl-pdfword-seo{
+  background:#f8fafc;
+  border:1px solid #f1f5f9;
+  border-radius:16px;
+  padding:22px 24px;
+  margin-bottom:16px;
+}
+.krl-pdfword-seo-title{
+  color:#1e293b;font-weight:700;font-size:15px;margin-bottom:10px;
+}
+.krl-pdfword-seo-p{
+  color:#1b2129;font-size:13px;line-height:1.8;margin-bottom:16px;
+}
+.krl-pdfword-seo-p:last-child{margin-bottom:0;}
+/* FAQ Section */
+.krl-pdfword-faq{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:22px 24px;
+  margin-bottom:16px;
+}
+.krl-pdfword-faq-title{
+  color:#1e293b;font-weight:700;font-size:15px;margin-bottom:14px;
+}
+.krl-pdfword-faq-item{
+  border-bottom:1px solid #f1f5f9;
+}
+.krl-pdfword-faq-item:last-child{border-bottom:none;}
+.krl-pdfword-faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 0;cursor:pointer;gap:12px;
+  user-select:none;-webkit-user-select:none;
+}
+.krl-pdfword-faq-q:hover .krl-pdfword-faq-q-text{color:#059669;}
+.krl-pdfword-faq-q-text{
+  color:#334155;font-size:14px;font-weight:600;flex:1;
+  transition:color .15s;
+}
+.krl-pdfword-faq-arrow{
+  color:#94a3b8;transition:transform .25s ease;flex-shrink:0;
+  display:flex;align-items:center;
+}
+.krl-pdfword-faq-item.krl-pdfword-faq-open .krl-pdfword-faq-arrow{
+  transform:rotate(180deg);color:#059669;
+}
+.krl-pdfword-faq-a{
+  display:none;
+}
+.krl-pdfword-faq-item.krl-pdfword-faq-open .krl-pdfword-faq-a{
+  display:block;
+}
+.krl-pdfword-faq-a-text{
+  color:#1b2129;font-size:13px;line-height:1.8;
+  padding-bottom:14px;
+}
+/* Responsive */
+@media(max-width:480px){
+  .krl-pdfword-header{padding:18px 20px;gap:12px;}
+  .krl-pdfword-title{font-size:17px;}
+  .krl-pdfword-subtitle{font-size:13px;}
+  .krl-pdfword-drop-zone{padding:30px 16px;}
+  .krl-pdfword-upload-text{font-size:15px;}
+  .krl-pdfword-btns-row{flex-direction:column;}
+  .krl-pdfword-header-icon{width:44px;height:44px;}
+  .krl-pdfword-header-icon svg{width:22px;height:22px;}
+  .krl-pdfword-faq-q{padding:12px 0;}
+  .krl-pdfword-faq-q-text{font-size:13px;}
+  .krl-pdfword-faq-a-text{font-size:12px;}
+}
+
+/* ===== محتوى تعليمي إضافي للصفحة 35 ===== */
+.krl-pdfword-guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.krl-pdfword-guide-card{background:#f8fafc;border:1px solid #dbeafe;border-radius:16px;padding:22px 24px;height:auto;min-height:0;align-self:start}
+.krl-pdfword-guide-title{color:#1e293b;font-weight:700;font-size:15px;margin:0 0 14px}
+.krl-pdfword-guide-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;color:#334155;font-size:13px;line-height:1.8}
+.krl-pdfword-guide-item:last-child{margin-bottom:0}
+.krl-pdfword-guide-num{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;min-width:25px;border-radius:7px;background:#eff6ff;border:1px solid #bfdbfe;color:#2563eb;font-size:12px;font-weight:800;margin-top:1px}
+.krl-pdfword-guide-dot{width:7px;height:7px;min-width:7px;border-radius:50%;background:#10b981;margin-top:10px}
+.krl-pdfword-guide-card,.krl-pdfword-notes,.krl-pdfword-seo,.krl-pdfword-faq{height:auto;min-height:0}
+@media(min-width:769px){
+.krl-pdfword-title{font-size:24px}.krl-pdfword-subtitle{font-size:16px}.krl-pdfword-upload-text{font-size:17px}.krl-pdfword-upload-hint{font-size:14px}.krl-pdfword-error-text{font-size:15px}.krl-pdfword-filename{font-size:15px}.krl-pdfword-filesize{font-size:13px}.krl-pdfword-convert-btn{font-size:18px}.krl-pdfword-progress-label,.krl-pdfword-progress-pct{font-size:15px}.krl-pdfword-success-msg{font-size:17px}.krl-pdfword-download-btn,.krl-pdfword-again-btn,.krl-pdfword-retry-btn{font-size:15px}.krl-pdfword-notes-title{font-size:17px}.krl-pdfword-note-text{font-size:15px;line-height:1.9}.krl-pdfword-seo-title{font-size:17px}.krl-pdfword-seo-p{font-size:15px;line-height:1.9}.krl-pdfword-faq-title{font-size:18px}.krl-pdfword-faq-q-text{font-size:17px}.krl-pdfword-faq-a-text{font-size:15px;line-height:1.9}.krl-pdfword-guide-title{font-size:18px}.krl-pdfword-guide-item{font-size:15px;line-height:1.9}
+}
+@media(max-width:700px){.krl-pdfword-guide-grid{grid-template-columns:1fr}}
+/* KERLION attribution footer */
+.krl-pdfword-credit{
+  margin:18px 0 0;
+  padding:14px 10px;
+  text-align:center;
+  color:#475569;
+  font-family:'Cairo',sans-serif;
+  font-size:13px;
+  line-height:1.9;
+  font-weight:700;
+}
+.krl-pdfword-credit p{margin:0}
+.krl-pdfword-credit a{
+  color:#047857;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.krl-pdfword-credit a:hover{color:#065f46}
