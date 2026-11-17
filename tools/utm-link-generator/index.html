@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="أنشئ روابط تتبع UTM لحملاتك التسويقية بسهولة باستخدام مولد روابط UTM من KERLION.">
+<meta name="theme-color" content="#0d9488">
+<title>مولد روابط UTM | KERLION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="krl-utm-app" id="kerlionUtmLinkGenerator" dir="rtl" lang="ar">
+  <!-- Header -->
+  <div class="krl-utm-header">
+    <div class="krl-utm-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    </div>
+    <p class="krl-utm-title">مولد روابط UTM</p>
+    <p class="krl-utm-desc">أنشئ روابط تتبع احترافية لحملاتك التسويقية. أضف معاملات UTM إلى أي رابط لتتبع مصدر الزيارات بدقة في أدوات التحليل.</p>
+  </div>
+
+  <!-- URL Input -->
+  <div class="krl-utm-url-section">
+    <label class="krl-utm-label krl-utm-label-required" for="krl-utm-url">رابط الموقع</label>
+    <input type="url" id="krl-utm-url" class="krl-utm-input krl-utm-url-input" placeholder="https://example.com/page" autocomplete="off" aria-label="أدخل رابط الموقع">
+  </div>
+
+  <!-- UTM Fields -->
+  <div class="krl-utm-fields">
+    <div class="krl-utm-field">
+      <label class="krl-utm-label krl-utm-label-required" for="krl-utm-source">utm_source</label>
+      <input type="text" id="krl-utm-source" class="krl-utm-input" placeholder="google, facebook, newsletter" autocomplete="off" aria-label="مصدر الزيارة">
+      <span class="krl-utm-hint">مصدر الزيارة مثل Google أو Facebook أو Newsletter</span>
+    </div>
+    <div class="krl-utm-field">
+      <label class="krl-utm-label krl-utm-label-required" for="krl-utm-medium">utm_medium</label>
+      <input type="text" id="krl-utm-medium" class="krl-utm-input" placeholder="cpc, social, email" autocomplete="off" aria-label="نوع القناة">
+      <span class="krl-utm-hint">نوع القناة مثل cpc أو social أو email</span>
+    </div>
+    <div class="krl-utm-field krl-utm-field-full">
+      <label class="krl-utm-label krl-utm-label-required" for="krl-utm-campaign">utm_campaign</label>
+      <input type="text" id="krl-utm-campaign" class="krl-utm-input" placeholder="summer-sale-2026" autocomplete="off" aria-label="اسم الحملة">
+      <span class="krl-utm-hint">اسم الحملة التسويقية لتمييزها في التقارير</span>
+    </div>
+    <div class="krl-utm-field">
+      <label class="krl-utm-label" for="krl-utm-term">utm_term <span style="font-weight:400;font-size:13px;color:#292524;opacity:.6">(اختياري)</span></label>
+      <input type="text" id="krl-utm-term" class="krl-utm-input" placeholder="marketing-tools" autocomplete="off" aria-label="الكلمة المفتاحية">
+      <span class="krl-utm-hint">الكلمة المفتاحية أو المصطلح المستهدف في الحملة</span>
+    </div>
+    <div class="krl-utm-field">
+      <label class="krl-utm-label" for="krl-utm-content">utm_content <span style="font-weight:400;font-size:13px;color:#292524;opacity:.6">(اختياري)</span></label>
+      <input type="text" id="krl-utm-content" class="krl-utm-input" placeholder="header-banner" autocomplete="off" aria-label="محتوى الإعلان">
+      <span class="krl-utm-hint">لتمييز الإعلانات أو الروابط المختلفة داخل نفس الحملة</span>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="krl-utm-btns">
+    <button type="button" id="krl-utm-generate" class="krl-utm-generate-btn" aria-label="إنشاء رابط UTM">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/><line x1="19" y1="5" x2="19" y2="5.01" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>إنشاء رابط UTM</span>
+    </button>
+    <button type="button" id="krl-utm-clear" class="krl-utm-clear-btn" aria-label="مسح جميع الحقول">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+      <span>مسح الكل</span>
+    </button>
+  </div>
+
+  <!-- Status -->
+  <div id="krl-utm-status" class="krl-utm-status" role="alert" aria-live="polite"></div>
+
+  <!-- Result -->
+  <div id="krl-utm-result" class="krl-utm-result">
+    <div class="krl-utm-result-header">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      <span class="krl-utm-result-title">الرابط النهائي</span>
+    </div>
+    <div id="krl-utm-result-params" class="krl-utm-result-params"></div>
+    <div class="krl-utm-result-url">
+      <div id="krl-utm-result-url-text" class="krl-utm-result-url-box"></div>
+    </div>
+    <div class="krl-utm-result-actions">
+      <button type="button" id="krl-utm-copy" class="krl-utm-copy-btn" aria-label="نسخ الرابط">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span id="krl-utm-copy-text">نسخ الرابط</span>
+      </button>
+      <button type="button" id="krl-utm-open" class="krl-utm-open-btn" aria-label="فتح الرابط في علامة تبويب جديدة">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span>فتح الرابط</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Examples -->
+  <div class="krl-utm-examples" id="krl-utm-examples">
+    <div class="krl-utm-examples-toggle" id="krl-utm-examples-toggle" role="button" tabindex="0" aria-expanded="false" aria-label="أمثلة على الاستخدام">
+      <p class="krl-utm-examples-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#0d9488"/></svg>
+        <span class="krl-utm-examples-title-text">أمثلة على الاستخدام</span>
+      </p>
+      <span class="krl-utm-examples-chevron">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </div>
+    <div class="krl-utm-examples-body">
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">الرابط:</span><span>https://example.com/offer</span></div>
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">utm_source:</span><span>facebook</span></div>
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">utm_medium:</span><span>social</span></div>
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">utm_campaign:</span><span>summer-sale</span></div>
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">utm_term:</span><span>shoes</span></div>
+      <div class="krl-utm-examples-row"><span class="krl-utm-examples-key">utm_content:</span><span>header-banner</span></div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="krl-utm-notes">
+    <p class="krl-utm-notes-title">ملاحظات هامة</p>
+    <div class="krl-utm-note"><span class="krl-utm-note-num">1</span><span>الأداة تعمل بالكامل داخل متصفحك ولا يتم إرسال أي بيانات إلى خوادم خارجية.</span></div>
+    <div class="krl-utm-note"><span class="krl-utm-note-num">2</span><span>ينصح باستخدام أحرف إنجليزية صغيرة وأرقام فقط في قيم UTM مع علامة (-) بدلا من المسافات.</span></div>
+    <div class="krl-utm-note"><span class="krl-utm-note-num">3</span><span>إذا كان الرابط يحتوي بالفعل على معاملات، سيتم إضافة معاملات UTM إليها بدون حذف المعاملات الأصلية.</span></div>
+    <div class="krl-utm-note"><span class="krl-utm-note-num">4</span><span>يمكنك استخدام الأداة لإنشاء روابط مختلفة لنفس الحملة عبر تغيير قيمة utm_content.</span></div>
+    <div class="krl-utm-note"><span class="krl-utm-note-num">5</span><span>استخدم الروابط المنشأة في إعلاناتك على مختلف المنصات لتتبع أداء كل مصدر بشكل منفصل.</span></div>
+  </div>
+
+
+  <!-- Educational Guide -->
+  <div class="krl-utm-guide-grid">
+    <div class="krl-utm-guide-card">
+      <p class="krl-utm-guide-title">كيف تستخدم معاملات UTM بشكل صحيح؟</p>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-num">1</span><span>اجعل utm_source يعبر عن المصدر الذي يأتي منه الزائر مثل Google أو Facebook.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-num">2</span><span>استخدم utm_medium لوصف نوع القناة مثل social أو email أو cpc.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-num">3</span><span>اكتب اسما واضحا في utm_campaign حتى يسهل تمييز الحملة داخل التقارير.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-num">4</span><span>استخدم utm_content عندما تريد التمييز بين رابطين أو إعلانين داخل الحملة نفسها.</span></div>
+    </div>
+
+    <div class="krl-utm-guide-card">
+      <p class="krl-utm-guide-title">نصائح لتنظيم روابط التتبع</p>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-dot"></span><span>حافظ على تسمية ثابتة للحملات حتى لا تظهر نفس الحملة بأسماء مختلفة داخل التقارير.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-dot"></span><span>يفضل استخدام قيم قصيرة وواضحة ومنظمة لسهولة قراءة الرابط وتحليله.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-dot"></span><span>استخدم utm_term عندما تحتاج إلى تتبع مصطلح أو كلمة مستهدفة في حملة مدفوعة.</span></div>
+      <div class="krl-utm-guide-item"><span class="krl-utm-guide-dot"></span><span>راجع الرابط النهائي قبل نشره، خصوصا عندما يحتوي الرابط الأصلي على معاملات أخرى.</span></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="krl-utm-faq">
+    <p class="krl-utm-faq-title">أسئلة شائعة</p>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">ما هي معاملات UTM؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>هي معاملات تضاف إلى الرابط لمساعدة أدوات التحليل على معرفة مصدر الزيارة والقناة والحملة المرتبطة بها.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">ما وظيفة utm_source؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>تحدد المصدر الذي جاء منه الزائر مثل Google أو Facebook أو النشرة البريدية.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">ما وظيفة utm_medium؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>تحدد نوع القناة التسويقية مثل الإعلانات المدفوعة أو وسائل التواصل الاجتماعي أو البريد الإلكتروني.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">ما وظيفة utm_campaign؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>تستخدم لتمييز الحملة التسويقية التي ينتمي إليها الرابط حتى يمكن تحليل نتائجها بصورة منفصلة.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">متى أستخدم utm_term؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>يمكن استخدامه لتسجيل الكلمة المفتاحية أو المصطلح المستهدف، خاصة عند تتبع الحملات الإعلانية المدفوعة.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">متى أستخدم utm_content؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>يستخدم للتمييز بين روابط أو إعلانات مختلفة داخل الحملة نفسها، مثل مقارنة بانرين أو أكثر من موضع للرابط.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل يمكن إضافة UTM إلى رابط يحتوي على معاملات مسبقا؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم. الكود الموجود في الأداة يستخدم URL API ويحتفظ بالمعاملات الموجودة، ثم يضيف معاملات UTM المطلوبة أو يحدث قيمة المعامل إذا كانت موجودة بالاسم نفسه.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل يمكن استخدام قيم عربية في معاملات UTM؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم، يمكن إدخال القيم العربية وسيقوم المتصفح بترميزها داخل الرابط، لكن استخدام قيم قصيرة وواضحة يسهل قراءة الروابط والتقارير.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل الأداة ترسل البيانات إلى خادم خارجي؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>بحسب الكود الحالي، إنشاء الرابط والتحقق منه وعرضه يتم داخل المتصفح، ولا توجد خدمة خارجية مطلوبة لإنشاء الرابط.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل يمكن إنشاء أكثر من رابط لنفس الحملة؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم، ويمكن تغيير utm_content أو قيم أخرى حسب المصدر والقناة والحالة التي تريد تتبعها بشكل منفصل.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل يمكن نسخ الرابط بعد إنشائه؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم، يوجد زر لنسخ الرابط النهائي إلى الحافظة، مع وجود طريقة بديلة عند عدم توفر Clipboard API.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل يمكن فتح الرابط الذي تم إنشاؤه مباشرة؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم، يوجد زر فتح الرابط، ويقوم بفتح الرابط النهائي في علامة تبويب جديدة.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">هل تعمل الأداة على الهاتف؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>نعم، التصميم يحتوي على قواعد Responsive للشاشات الصغيرة، وتتحول الحقول والأزرار إلى ترتيب عمودي عند الحاجة.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">ما أفضل طريقة لتسمية الحملات؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>استخدم تسمية واضحة وثابتة تعبر عن الحملة نفسها، وتجنب تغيير طريقة كتابة الاسم بين الروابط المختلفة حتى لا تتوزع بيانات الحملة في التقارير.</p></div>
+    </div>
+    <div class="krl-utm-faq-item">
+      <div class="krl-utm-faq-q" role="button" tabindex="0" aria-expanded="false"><span class="krl-utm-faq-q-text">كيف أستخدم مولد UTM خطوة بخطوة؟</span><span class="krl-utm-faq-chevron"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+      <div class="krl-utm-faq-a" role="region"><p>أدخل رابط الصفحة، ثم اكتب المصدر والقناة واسم الحملة، وأضف term أو content عند الحاجة، وبعدها اضغط إنشاء رابط UTM وراجع الرابط النهائي قبل نشره.</p></div>
+    </div>
+  </div>
+  <!-- SEO Banner -->
+  <div class="krl-utm-seo">
+    <p class="krl-utm-seo-title">كل ما تحتاج معرفته عن روابط UTM</p>
+    <p>مولد روابط UTM هو أداة مجانية تساعد المسوقين وأصحاب المواقع على إنشاء روابط تتبع احترافية بسهولة. معاملات UTM هي معيار متبع في التسويق الرقمي تم تطويره بواسطة Urchin Software Corporation (التي استحوذت عليها Google لاحقا) وتستخدم على نطاق واسع في أدوات التحليل مثل Google Analytics.</p>
+    <p>تعمل الأداة مباشرة في متصفحك دون الحاجة لتحميل أي برنامج أو التسجيل في أي خدمة. أدخل رابط الموقع الذي تريد الترويج له، ثم حدد مصدر الزيارة وقناة التسويق واسم الحملة، وستحصل فورا على رابط جاهز يحتوي على جميع معاملات التتبع المطلوبة.</p>
+    <p>فائدة روابط UTM الأساسية هي تتبع مصدر الزيارات بدقة. عندما ينقر المستخدم على رابط يحتوي على معاملات UTM، تسجل أدوات التحليل هذه المعاملات وتعرضها في تقارير مفصلة. هذا يتيح لك معرفة أي الحملات تحقق أفضل نتائج وتوجيه ميزانيتك التسويقية نحو القنوات الأكثر فعالية.</p>
+  </div>
+
+  <footer class="krl-utm-credit" aria-label="حقوق ونسبة KERLION">
+    <p>جميع الحقوق محفوظة لمنصة KERLION</p>
+    <p>تم التصميم والتطوير بواسطة
+      <a href="https://www.kerlionvip.com" target="_blank" rel="noopener noreferrer">منصة KERLION</a>
+    </p>
+  </footer>
+</div>
+<script src="js/app.js" defer></script>
+</body>
+</html>
