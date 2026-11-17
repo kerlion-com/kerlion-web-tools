@@ -156,6 +156,17 @@ Our mission is to make useful digital tools and technology solutions accessible 
 
 **Official Website:** https://www.kerlionvip.com
 
+## UTM Link Generator
+### مولد روابط UTM
+
+أداة لإنشاء روابط تتبع الحملات التسويقية وإضافة معاملات UTM إلى روابط الصفحات.
+
+- **Live Tool:** [استخدام مولد روابط UTM](https://www.kerlionvip.com/p/utm-link-generator.html)
+- **Arabic Guide:** [دليل المطورين باللغة العربية](https://www.kerlionvip.com/2026/08/utm-link-generator.html)
+- **Source Code:** [ملفات المشروع على GitHub](https://github.com/kerlion-com/kerlion-web-tools/tree/main/tools/utm-link-generator)
+
+---
+
 ## PDF to Word Converter
 
 - **Live Tool:** [Use PDF to Word Converter](https://www.kerlionvip.com/p/pdf-to-word-converter.html)
