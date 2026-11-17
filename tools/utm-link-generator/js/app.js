@@ -1,22 +1,25 @@
 (function(){
 "use strict";
 
+var app = document.getElementById('kerlionUtmLinkGenerator');
+if (!app) return;
+
 /* ===== DOM References ===== */
-var urlInput = document.getElementById('krl-utm-url');
-var sourceInput = document.getElementById('krl-utm-source');
-var mediumInput = document.getElementById('krl-utm-medium');
-var campaignInput = document.getElementById('krl-utm-campaign');
-var termInput = document.getElementById('krl-utm-term');
-var contentInput = document.getElementById('krl-utm-content');
-var generateBtn = document.getElementById('krl-utm-generate');
-var clearBtn = document.getElementById('krl-utm-clear');
-var statusEl = document.getElementById('krl-utm-status');
-var resultEl = document.getElementById('krl-utm-result');
-var resultUrlBox = document.getElementById('krl-utm-result-url-text');
-var resultParams = document.getElementById('krl-utm-result-params');
-var copyBtn = document.getElementById('krl-utm-copy');
-var copyText = document.getElementById('krl-utm-copy-text');
-var openBtn = document.getElementById('krl-utm-open');
+var urlInput = app.querySelector('#krl-utm-url');
+var sourceInput = app.querySelector('#krl-utm-source');
+var mediumInput = app.querySelector('#krl-utm-medium');
+var campaignInput = app.querySelector('#krl-utm-campaign');
+var termInput = app.querySelector('#krl-utm-term');
+var contentInput = app.querySelector('#krl-utm-content');
+var generateBtn = app.querySelector('#krl-utm-generate');
+var clearBtn = app.querySelector('#krl-utm-clear');
+var statusEl = app.querySelector('#krl-utm-status');
+var resultEl = app.querySelector('#krl-utm-result');
+var resultUrlBox = app.querySelector('#krl-utm-result-url-text');
+var resultParams = app.querySelector('#krl-utm-result-params');
+var copyBtn = app.querySelector('#krl-utm-copy');
+var copyText = app.querySelector('#krl-utm-copy-text');
+var openBtn = app.querySelector('#krl-utm-open');
 
 var allInputs = [urlInput, sourceInput, mediumInput, campaignInput, termInput, contentInput];
 var lastGeneratedUrl = '';
@@ -204,7 +207,7 @@ function esc(str) {
 
 /* ===== FAQ Accordion ===== */
 function initFaq() {
-  var items = document.querySelectorAll('.krl-utm-faq-item');
+  var items = app.querySelectorAll('.krl-utm-faq-item');
   for (var i = 0; i < items.length; i++) {
     (function(item) {
       var q = item.querySelector('.krl-utm-faq-q');
@@ -228,8 +231,8 @@ function initFaq() {
 
 /* ===== Examples Toggle ===== */
 function initExamples() {
-  var toggle = document.getElementById('krl-utm-examples-toggle');
-  var container = document.getElementById('krl-utm-examples');
+  var toggle = app.querySelector('#krl-utm-examples-toggle');
+  var container = app.querySelector('#krl-utm-examples');
   if (!toggle || !container) return;
   toggle.addEventListener('click', function() {
     var isOpen = container.classList.contains('krl-utm-examples-open');
